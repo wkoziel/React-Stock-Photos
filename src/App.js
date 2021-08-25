@@ -9,14 +9,28 @@ const searchURL = 'https://api.unsplash.com/search/photos'
 const App = () => {
   const [photos, setPhotos] = useState([])
   const [loading, setLoading] = useState(false)
+  const [page, setPage] = useState(1)
+  const [query, setQuery] = useState('')
 
   const fetchData = async () => {
     setLoading(true)
-    let url = `${mainURL}${clientID}`
+    let url
+    const pageURL = `&page=${page}`
+    const queryURL = `&query=${query}`
+
+    if (query) url = `${searchURL}${clientID}${pageURL}${queryURL}`
+    else url = `${mainURL}${clientID}${pageURL}`
+
     try {
       const response = await fetch(url)
       const data = await response.json()
-      setPhotos(data)
+      setPhotos((oldPhotos) => {
+        if (query && page === 1) {
+          return data.results
+        } else if (query) {
+          return [...oldPhotos, ...data.results]
+        } else return [...oldPhotos, ...data]
+      })
       setLoading(false)
     } catch (error) {
       setLoading(false)
@@ -26,18 +40,39 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Data submited')
+    setPage(1)
+    fetchData()
   }
 
   useEffect(() => {
     fetchData()
+  }, [page])
+
+  useEffect(() => {
+    const event = window.addEventListener('scroll', () => {
+      if (
+        !loading &&
+        window.innerHeight + window.scrollY >= document.body.scrollHeight - 2
+      ) {
+        setPage((oldPage) => oldPage + 1)
+      }
+    })
+    return () => {
+      window.removeEventListener('scroll', event)
+    }
   }, [])
 
   return (
     <main>
       <section className='search'>
         <form className='search-form'>
-          <input type='text' placeholder='search' className='form-input' />
+          <input
+            type='text'
+            placeholder='search'
+            className='form-input'
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
           <button type='submit' className='submit-btn' onClick={handleSubmit}>
             <FaSearch />
           </button>
@@ -45,8 +80,8 @@ const App = () => {
       </section>
       <section className='photos'>
         <div className='photos-center'>
-          {photos.map((photo) => (
-            <Photo key={photo.id} {...photo} />
+          {photos.map((photo, index) => (
+            <Photo key={index} {...photo} />
           ))}
         </div>
         {loading && <h2 className='loading'>Loading..</h2>}
