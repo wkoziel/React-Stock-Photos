@@ -27,7 +27,7 @@
 
 
 ## Screenshots
-![image](https://i.ibb.co/dWw3HTz/ezgif-com-gif-maker.gif)
+![image](https://camo.githubusercontent.com/1822cfd3ebd4a6bb947f6750ab3cc1e26d94f75d8a3d2c5129e3210ca1db0834/68747470733a2f2f692e6962622e636f2f6457773348547a2f657a6769662d636f6d2d6769662d6d616b65722e676966)
 
 
 ## Setup
