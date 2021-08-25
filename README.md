@@ -1,3 +1,4 @@
+
 # Project Name
 > Simple web application imitating photo stock with infinite loading and search functionality.<br> App is using external API (https://unsplash.com/)
 
@@ -26,9 +27,8 @@
 - Unsplash API
 
 
-## Screenshots
-![image](https://camo.githubusercontent.com/1822cfd3ebd4a6bb947f6750ab3cc1e26d94f75d8a3d2c5129e3210ca1db0834/68747470733a2f2f692e6962622e636f2f6457773348547a2f657a6769662d636f6d2d6769662d6d616b65722e676966)
-
+## Preview
+![image](https://user-images.githubusercontent.com/44378819/130835308-cb641f50-e846-4dc6-8422-87e0eb8d3065.gif)
 
 ## Setup
 To run the project you need to install all dependences form package.json. In order to do this, you need to type this command into you terminal while you're in project folder:
