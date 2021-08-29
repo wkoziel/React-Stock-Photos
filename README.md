@@ -31,7 +31,7 @@
 ![image](https://user-images.githubusercontent.com/44378819/130835308-cb641f50-e846-4dc6-8422-87e0eb8d3065.gif)
 
 ## Setup
-To run the project you need to install all dependences form package.json. In order to do this, you need to type this command into you terminal while you're in project folder:
+To run the project you need to install all dependences form package.json. In order to do this, you need to type this command into your terminal while you're in project folder:
 ```
 npm install
 ```
