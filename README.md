@@ -39,6 +39,11 @@ Now you need to create .env file and put there your own access key to unsplash A
 ```
 REACT_APP_ACCESS_KEY=<your-access-key>
 ```
+To start the server use:
+```
+npm start
+```
+Your local server is available  at localhost:3000
 
 
 ## Project Status
