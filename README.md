@@ -1,5 +1,5 @@
 
-# Project Name
+# Stock Photos
 > Simple web application imitating photo stock with infinite loading and search functionality.<br> App is using external API (https://unsplash.com/)
 
 ## Table of Contents
